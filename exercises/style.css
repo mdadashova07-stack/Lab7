@@ -1,0 +1,521 @@
+/* General Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', Arial, sans-serif; /* Using Inter font for modern look */
+    background-color: #1a0033; /* Dark purple/black background */
+    color: #ffffff; /* White text */
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(26, 0, 51, 0.9); /* Slightly transparent background for fixed header */
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.navbar nav a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-left: 30px;
+    font-size: 1em;
+    padding: 5px 0;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    color: #ff00ff; /* Pink highlight for active/hover */
+    border-bottom: 2px solid #ff00ff;
+}
+
+/* --- Shared Section Styling for Full Pages --- */
+section {
+    padding: 100px 5%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center;
+    text-align: center;
+}
+
+/* --- 1. Home Section (index.html) --- */
+.hero-section {
+    background: radial-gradient(circle at center, rgba(58, 1, 95, 0.4) 0%, rgba(26, 0, 51, 1) 70%);
+}
+
+.hero-content {
+    max-width: 800px;
+}
+
+.avatar-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(153, 0, 255, 0.5); /* Soft purple glow */
+}
+
+.hello-text {
+    position: absolute;
+    top: -30px;
+    right: -150px;
+    padding: 5px 15px;
+    border-radius: 9999px; /* Fully rounded pill shape */
+    background-color: #3f0071;
+    font-size: 0.9em;
+    white-space: nowrap;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.hero-section h1 {
+    font-size: clamp(2.5rem, 6vw, 4em); /* Responsive font size */
+    margin-bottom: 10px;
+    line-height: 1.1;
+    font-weight: 800;
+}
+
+.cover-text {
+    border-bottom: 5px solid #ff00ff; /* Pink underline */
+    padding-bottom: 5px;
+}
+
+.small-text {
+    font-size: 0.9em;
+    color: #cccccc;
+    margin-bottom: 30px;
+}
+
+.engineer-title {
+    font-size: clamp(1.8rem, 4vw, 2.5em);
+    margin-top: 50px;
+    display: inline-block;
+    font-weight: 600;
+}
+
+.engineer-title::after {
+    content: '|';
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+@keyframes blink-caret {
+    from, to { opacity: 0 }
+    50% { opacity: 1 }
+}
+
+.current-role {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+.facebook-link {
+    color: #00bfff; /* Bright blue link color */
+    font-weight: bold;
+}
+
+.bio {
+    max-width: 600px;
+    margin: 0 auto;
+    color: #cccccc;
+}
+
+
+/* --- 2. Work Experience Section (work.html) --- */
+.work-section {
+    text-align: center;
+}
+
+.section-heading {
+    font-size: 2.5em;
+    margin-bottom: 60px;
+    font-weight: 700;
+}
+
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 80px;
+}
+
+.work-card {
+    background: linear-gradient(145deg, #3f0071, #2a0050);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(153, 0, 255, 0.4);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.work-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 0, 255, 0.6);
+}
+
+.work-card img {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 5px #ff00ff);
+}
+
+.work-card h3 {
+    margin: 10px 0;
+    font-size: 1.5em;
+}
+
+.work-card p {
+    color: #cccccc;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.work-card a {
+    color: #ff00ff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.collaboration-cta {
+    margin-top: 100px;
+}
+
+.collaboration-cta p {
+    max-width: 500px;
+    margin: 0 auto 50px;
+    font-size: 1.2em;
+    line-height: 1.4;
+    font-weight: 300;
+}
+
+.tool-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 50px;
+    font-size: 2.5em;
+    color: #cccccc;
+}
+
+.center-logo-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    overflow: hidden;
+    margin-top: 50px;
+}
+
+.center-logo {
+    font-size: 4em;
+    font-weight: bold;
+    z-index: 10;
+    color: #ff00ff;
+    border: 2px solid #ff00ff;
+    box-shadow: 0 0 50px rgba(255, 0, 255, 0.8), inset 0 0 20px rgba(255, 0, 255, 0.5);
+    border-radius: 50%;
+    padding: 20px 40px;
+    background: rgba(255, 0, 255, 0.1);
+}
+
+/* The `orbiting-elements` is a placeholder for the complex orbiting diagram */
+.orbiting-elements {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    /* Creates the radiating lines effect */
+    background: repeating-radial-gradient(circle at center, transparent, transparent 10px, rgba(255, 0, 255, 0.1) 12px, rgba(255, 0, 255, 0.05) 15px);
+    opacity: 0.5;
+    animation: rotate-orbit 60s linear infinite;
+}
+
+@keyframes rotate-orbit {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+
+/* --- 3. Projects and Contact Section (contact.html) --- */
+.projects-contact-section {
+    text-align: left;
+}
+
+.projects-container {
+    margin-bottom: 100px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 80px;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.project-left {
+    flex-direction: row-reverse; /* Swap order for image on left on desktop */
+}
+
+/* Default Mobile/Small Screen Order: Mockup (1) then Info (2) */
+/* Override for Project 1 (.project-left) for mobile */
+.project-item > *:nth-child(1) {
+    order: 2; /* Info goes second */
+}
+.project-item > *:nth-child(2) {
+    order: 1; /* Mockup goes first */
+}
+
+/* Desktop Reversion (undoing the generic mobile change for the specific classes) */
+@media (min-width: 901px) {
+    .project-left {
+        flex-direction: row-reverse; /* Info on left, Mockup on right */
+    }
+    .project-left > *:nth-child(1) {
+        order: 2; /* Mockup is child 2, should be on the right */
+    }
+    .project-left > *:nth-child(2) {
+        order: 1; /* Info is child 1, should be on the left */
+    }
+
+    .project-right {
+        flex-direction: row; /* Info on right, Mockup on left */
+    }
+    .project-right > *:nth-child(1) {
+        order: 1; /* Info is child 1, should be on the left (of the children) */
+    }
+    .project-right > *:nth-child(2) {
+        order: 2; /* Mockup is child 2, should be on the right (of the children) */
+    }
+}
+
+
+.project-info {
+    flex: 1 1 45%; /* Flexible width, allows wrapping */
+    min-width: 300px;
+    text-align: left;
+}
+
+.featured-tag {
+    color: #ff00ff;
+    font-weight: bold;
+    font-size: 0.9em;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.project-info h3 {
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.project-info p {
+    color: #cccccc;
+    margin-bottom: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(153, 0, 255, 0.3);
+    line-height: 1.5;
+}
+
+.project-icons {
+    font-size: 1.5em;
+}
+
+.project-mockup {
+    flex: 1 1 45%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 0 40px rgba(200, 0, 255, 0.8), inset 0 0 10px rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    min-width: 300px;
+}
+
+.mockup-content {
+    background: #ffffff;
+    color: #000000;
+    width: 100%;
+    height: 300px;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.mockup-header {
+    font-size: 1.5em;
+    color: #ff00ff;
+    margin-bottom: 20px;
+}
+
+.sub-text {
+    font-size: 0.8em;
+    color: #555;
+}
+
+.mockup-wireframe {
+    height: 350px;
+    position: relative;
+}
+
+.wireframe-header {
+    height: 40px;
+    border: 2px solid #000;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.wireframe-body {
+    height: 150px;
+    border: 2px solid #000;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.opportunity-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #000;
+    font-weight: bold;
+}
+
+.contact-section {
+    text-align: center;
+    padding: 50px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 800px;
+}
+
+.contact-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.contact-section p {
+    max-width: 600px;
+    margin: 0 auto 20px;
+    color: #cccccc;
+    font-size: 1.1em;
+}
+
+.email {
+    font-size: 1.2em;
+    color: #ff00ff;
+    font-weight: bold;
+    margin-bottom: 30px;
+    transition: color 0.3s;
+}
+.email:hover {
+    color: #fff;
+}
+
+.social-links a {
+    color: #ffffff;
+    font-size: 1.8em;
+    margin: 0 15px;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-links a:hover {
+    color: #ff00ff;
+    transform: scale(1.1);
+}
+
+/* --- Media Queries for Responsiveness --- */
+@media (max-width: 900px) {
+    .project-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    /* Reset all orders for mobile to ensure standard stacking (Mockup then Info) */
+    .project-item > * {
+        order: initial !important;
+    }
+    
+    /* This rule forces the mockup (which is usually the second child in the HTML) 
+       to always appear first on small screens if you follow the HTML structure 
+       I provided previously. You may need to adjust the children indices 
+       based on your actual HTML structure. */
+    .project-item .project-mockup {
+        order: 1;
+    }
+    .project-item .project-info {
+        order: 2;
+        text-align: center;
+    }
+
+
+    .project-info {
+        min-width: auto;
+    }
+    
+    .hello-text {
+        position: static;
+        margin-bottom: 20px;
+    }
+
+    .work-grid {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar nav {
+        display: none; /* Hide navigation on mobile */
+    }
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+    .engineer-title {
+        font-size: 1.8em;
+    }
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+    .contact-section, .projects-container {
+        padding: 0 20px;
+    }
+}
